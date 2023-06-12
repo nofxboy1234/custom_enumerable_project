@@ -4,10 +4,18 @@ module Enumerable
   # Your code goes here
   def my_each_with_index
     count = 0
-    for element in self
+    for element in self do
       yield(element, count)
       count += 1
     end
+  end
+
+  def my_select
+    selected = []
+    for element in self do
+      selected << element if yield(element)
+    end
+    selected
   end
 end
 
