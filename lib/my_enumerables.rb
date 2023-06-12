@@ -49,6 +49,19 @@ module Enumerable
     end
     mapped
   end
+
+  def my_inject(initial_operand = nil)
+    memo = initial_operand
+    if initial_operand
+    else
+      memo = 0
+    end
+
+    for operand in self do
+      memo = yield(memo, operand)
+    end
+    memo
+  end
 end
 
 # You will first have to define my_each
