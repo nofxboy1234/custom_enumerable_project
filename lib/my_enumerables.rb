@@ -17,6 +17,14 @@ module Enumerable
     end
     selected
   end
+
+  def my_all?
+    matches = 0
+    for element in self do
+      matches += 1 if yield(element)
+    end
+    matches == self.size
+  end
 end
 
 # You will first have to define my_each
