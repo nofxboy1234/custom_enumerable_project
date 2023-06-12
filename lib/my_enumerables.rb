@@ -33,6 +33,14 @@ module Enumerable
     end
     matches.positive?
   end
+
+  def my_none?
+    matches = 0
+    for element in self do
+      matches += 1 if yield(element)
+    end
+    matches.zero?
+  end
 end
 
 # You will first have to define my_each
