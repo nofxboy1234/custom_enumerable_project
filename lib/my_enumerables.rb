@@ -42,16 +42,12 @@ module Enumerable
     matches.zero?
   end
 
-  def my_count
-    if block_given?
-      matches = 0
-      for element in self do
-        matches += 1 if yield(element)
-      end
-      matches
-    else
-      self.size
+  def my_map
+    mapped = []
+    for element in self do
+      mapped << yield(element)
     end
+    mapped
   end
 end
 
