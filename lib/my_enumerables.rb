@@ -1,5 +1,14 @@
+require 'pry-byebug'
+
 module Enumerable
   # Your code goes here
+  def my_each_with_index
+    count = 0
+    for element in self
+      yield(element, count)
+      count += 1
+    end
+  end
 end
 
 # You will first have to define my_each
